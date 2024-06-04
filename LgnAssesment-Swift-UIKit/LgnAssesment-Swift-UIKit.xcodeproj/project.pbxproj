@@ -18,6 +18,10 @@
 		9F6E04B82C0F88800062E451 /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04B72C0F88800062E451 /* ItemListViewModel.swift */; };
 		9F6E04BA2C0F88A00062E451 /* ItemDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04B92C0F88A00062E451 /* ItemDataModel.swift */; };
 		9F6E04BC2C0F88C00062E451 /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04BB2C0F88C00062E451 /* ItemViewCell.swift */; };
+		9F6E04BF2C0F8C240062E451 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04BE2C0F8C240062E451 /* ItemViewController.swift */; };
+		9F6E04C12C0F8C600062E451 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04C02C0F8C600062E451 /* ItemViewModel.swift */; };
+		9F6E04C32C0F8C7D0062E451 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04C22C0F8C7D0062E451 /* ItemModel.swift */; };
+		9F6E04C52C0F8CB50062E451 /* ItemModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04C42C0F8CB50062E451 /* ItemModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		9F6E04B72C0F88800062E451 /* ItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
 		9F6E04B92C0F88A00062E451 /* ItemDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataModel.swift; sourceTree = "<group>"; };
 		9F6E04BB2C0F88C00062E451 /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
+		9F6E04BE2C0F8C240062E451 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		9F6E04C02C0F8C600062E451 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		9F6E04C22C0F8C7D0062E451 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		9F6E04C42C0F8CB50062E451 /* ItemModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 				9F6E04852C0F707E0062E451 /* SceneDelegate.swift */,
 				9F6E04B32C0F87BF0062E451 /* Protocols */,
 				9F6E04B42C0F87D00062E451 /* ItemList_MVVM */,
+				9F6E04BD2C0F8BA70062E451 /* Item_MVVM */,
 				9F6E048C2C0F70810062E451 /* Assets.xcassets */,
 				9F6E04912C0F70810062E451 /* Info.plist */,
 			);
@@ -134,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				9F6E04B52C0F87FE0062E451 /* ItemListModelProtocol.swift */,
+				9F6E04C42C0F8CB50062E451 /* ItemModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -147,6 +157,16 @@
 				9F6E04BB2C0F88C00062E451 /* ItemViewCell.swift */,
 			);
 			path = ItemList_MVVM;
+			sourceTree = "<group>";
+		};
+		9F6E04BD2C0F8BA70062E451 /* Item_MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				9F6E04BE2C0F8C240062E451 /* ItemViewController.swift */,
+				9F6E04C02C0F8C600062E451 /* ItemViewModel.swift */,
+				9F6E04C22C0F8C7D0062E451 /* ItemModel.swift */,
+			);
+			path = Item_MVVM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,12 +298,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6E04C32C0F8C7D0062E451 /* ItemModel.swift in Sources */,
 				9F6E04BC2C0F88C00062E451 /* ItemViewCell.swift in Sources */,
+				9F6E04BF2C0F8C240062E451 /* ItemViewController.swift in Sources */,
 				9F6E04BA2C0F88A00062E451 /* ItemDataModel.swift in Sources */,
 				9F6E04B62C0F87FE0062E451 /* ItemListModelProtocol.swift in Sources */,
 				9F6E04882C0F707E0062E451 /* ItemListViewController.swift in Sources */,
+				9F6E04C12C0F8C600062E451 /* ItemViewModel.swift in Sources */,
 				9F6E04B82C0F88800062E451 /* ItemListViewModel.swift in Sources */,
 				9F6E04842C0F707E0062E451 /* AppDelegate.swift in Sources */,
+				9F6E04C52C0F8CB50062E451 /* ItemModelProtocol.swift in Sources */,
 				9F6E04862C0F707E0062E451 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -100,7 +100,10 @@ extension ItemListViewController: UICollectionViewDelegate  {
          collectionView.deselectItem(at: indexPath, animated: true)
          guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
          
-         // FIXME: presetns details viescontr
+         let viewModel = ItemViewModel(model: ItemModel(item: item))
+         
+         let cellViewController = ItemViewController(viewModel: viewModel)
+         self.navigationController?.pushViewController(cellViewController, animated: true)
      }
     
 }
