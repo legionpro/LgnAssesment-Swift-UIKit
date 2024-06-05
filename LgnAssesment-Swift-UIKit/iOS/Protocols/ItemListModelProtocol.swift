@@ -13,5 +13,5 @@ protocol ItemListModelProtocol {
     var itemsList: [ItemDataModel] {get}
     
     // FIXME: temporary solusion
-    func createData()
+    mutating func createData()
 }
