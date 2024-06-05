@@ -8,17 +8,21 @@
 import Foundation
 
 // MARK: - jsut protocol for mapping  response data to items
+@MainActor
 protocol ItemDataMapperProtocol {
 
-    func itemResponseToItem(_ response: ColectionObjects ) -> ItemListModel
+    func itemResponseToItem(_ response: ColectionObjects ) -> [ItemDataModel]
 }
 
 
 // FIXME: - needs real implematation
 extension ItemDataMapperProtocol {
 
-    func itemResponseToItem(_ response: ColectionObjects ) -> ItemListModel {
-        var result = ItemListModel()
+    func itemResponseToItem(_ response: ColectionObjects ) -> [ItemDataModel] {
+        var result = [ItemDataModel]()
+        if let resp = response.artObjects {
+            let _ = resp.map{ result.append(ItemDataModel(name: $0.title ?? "" , image: "")) }
+        }
         return result
     }
 }

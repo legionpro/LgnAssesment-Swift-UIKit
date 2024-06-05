@@ -10,6 +10,10 @@ import Foundation
 //MARK: - Data for main screen  -  Item List Controller
 struct ItemListModel {
     private var items = [ItemDataModel]()
+    
+    mutating func addItem(_ item: ItemDataModel) {
+        self.items.append(item)
+    }
 }
 
 
@@ -17,6 +21,7 @@ extension ItemListModel: ItemListModelProtocol {
     
     var itemsList: [ItemDataModel] {
         get { self.items }
+        set { self.items = newValue}
     }
     
     //FIXME:  - Just for dummy data

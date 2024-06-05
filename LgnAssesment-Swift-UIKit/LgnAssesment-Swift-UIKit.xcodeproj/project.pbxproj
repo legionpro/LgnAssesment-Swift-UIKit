@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9F087AD12C1059F900876713 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD02C1059F900876713 /* NetworkService.swift */; };
-		9F087AD32C105A1900876713 /* NetworkResponcseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD22C105A1900876713 /* NetworkResponcseWrapper.swift */; };
 		9F087AD52C105A6B00876713 /* ItemDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD42C105A6B00876713 /* ItemDataModel.swift */; };
 		9F087AD72C105BD800876713 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD62C105BD800876713 /* NetworkServiceProtocol.swift */; };
 		9F087AD92C10613B00876713 /* NetworkResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD82C10613B00876713 /* NetworkResponses.swift */; };
@@ -55,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		9F087AD02C1059F900876713 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		9F087AD22C105A1900876713 /* NetworkResponcseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponcseWrapper.swift; sourceTree = "<group>"; };
 		9F087AD42C105A6B00876713 /* ItemDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataModel.swift; sourceTree = "<group>"; };
 		9F087AD62C105BD800876713 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		9F087AD82C10613B00876713 /* NetworkResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponses.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				9F087AD02C1059F900876713 /* NetworkService.swift */,
-				9F087AD22C105A1900876713 /* NetworkResponcseWrapper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -370,7 +367,6 @@
 				9F6E04B62C0F87FE0062E451 /* ItemListModelProtocol.swift in Sources */,
 				9F6E04882C0F707E0062E451 /* ItemListViewController.swift in Sources */,
 				9F6E04C12C0F8C600062E451 /* ItemViewModel.swift in Sources */,
-				9F087AD32C105A1900876713 /* NetworkResponcseWrapper.swift in Sources */,
 				9F6E04B82C0F88800062E451 /* ItemListViewModel.swift in Sources */,
 				9F6E04842C0F707E0062E451 /* AppDelegate.swift in Sources */,
 				9F087AF42C106B1A00876713 /* Facets.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 fileprivate typealias ItemsDataSource  = UICollectionViewDiffableDataSource<ItemListViewController.Section, ItemDataModel>
 fileprivate typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<ItemListViewController.Section, ItemDataModel>
@@ -37,15 +38,31 @@ class ItemListViewController: UIViewController {
 
         configureHierarchy()
         configureDataSource()
+        
+        
+        //FIXME:  - jest temporary solution
+        let logoutBarButtonItem = UIBarButtonItem(title: "Reset", style: .done, target: self, action: #selector(resetCollectionObjects))
+        self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
+        
+        //FIXME:  - jest temporary solution
+        let updBarButtonItem = UIBarButtonItem(title: "Upd", style: .done, target: self, action: #selector(update))
+        self.navigationItem.leftBarButtonItem  = updBarButtonItem
+    }
+
+    //FIXME: - bindings is needed
+    @objc func resetCollectionObjects() {
+        viewModel.resetItemsList()
+    }
+    //FIXME: - bindings is needed
+    @objc func update() {
+        self.updateSnashot()
     }
 
 }
 
 
-
 //MARK: - SetUp collectionView
 extension ItemListViewController {
-    
     
     private func createLayout() -> UICollectionViewLayout {
         
@@ -81,12 +98,16 @@ extension ItemListViewController {
             return cell
         })
         
+        updateSnashot()
+    }
+    
+    fileprivate func updateSnashot() {
         var snapshot = DataSourceSnapshot()
         snapshot.appendSections([Section.main])
         snapshot.appendItems(self.viewModel.itemsList)
-        dataSource.apply(snapshot, animatingDifferences: false)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
+
 }
 
 //MARK: - Collection View Delegates

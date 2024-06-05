@@ -10,7 +10,7 @@ import Foundation
 //describes interface for ItemListModel
 protocol ItemListModelProtocol {
     
-    var itemsList: [ItemDataModel] {get}
+    var itemsList: [ItemDataModel] { get set }
     
     // FIXME: temporary solusion
     mutating func createData()

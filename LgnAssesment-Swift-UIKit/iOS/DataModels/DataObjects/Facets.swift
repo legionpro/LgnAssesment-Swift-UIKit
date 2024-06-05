@@ -3,10 +3,10 @@ import Foundation
 
 struct Facets: Codable {
 
-  var facets     : [Facets]? = []
-  var name       : String?   = nil
-  var otherTerms : Int?      = nil
-  var prettyName : Int?      = nil
+  var facets     : [Facets]? //= []
+  var name       : String? //  = nil
+  var otherTerms : Int?    //  = nil
+  var prettyName : Int?    //  = nil
 
   enum CodingKeys: String, CodingKey {
 
@@ -17,18 +17,19 @@ struct Facets: Codable {
   
   }
 
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-
-    facets     = try values.decodeIfPresent([Facets].self , forKey: .facets     )
-    name       = try values.decodeIfPresent(String.self   , forKey: .name       )
-    otherTerms = try values.decodeIfPresent(Int.self      , forKey: .otherTerms )
-    prettyName = try values.decodeIfPresent(Int.self      , forKey: .prettyName )
- 
-  }
-
-  init() {
-
-  }
+//  init(from decoder: Decoder) throws {
+//    let values = try decoder.container(keyedBy: CodingKeys.self)
+//      print("____________________\(values)")
+//
+//    facets     = try values.decodeIfPresent([Facets].self , forKey: .facets     )
+//    name       = try values.decodeIfPresent(String.self   , forKey: .name       )
+//    otherTerms = try values.decodeIfPresent(Int.self      , forKey: .otherTerms )
+//    prettyName = try values.decodeIfPresent(Int.self      , forKey: .prettyName )
+// 
+//  }
+//
+//  init() {
+//
+//  }
 
 }

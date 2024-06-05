@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+let kServerCollectionObjectsUrl = "https://www.rijksmuseum.nl"
+
 enum APIError: Error {
     case invalidURL
     case requestFailed(String)
@@ -22,13 +24,13 @@ enum HttpMethod: String {
 }
 
 enum Endpoint {
+    
     case justGet
-
 
     var path: String {
         switch self {
         case .justGet:
-            return "/api/get"
+            return "/api/nl/collection?key=0fiuZFh4&involvedMaker=Rembrandt+van+Rijn"
         }
     }
 
@@ -46,7 +48,7 @@ enum APIEnvironment {
     var baseURL: String {
         switch self {
         case .dev:
-            return "development.example.com"
+            return kServerCollectionObjectsUrl
         }
     }
 }
@@ -99,6 +101,7 @@ class NetworkService: NetworkServiceProtocol {
                     return Fail(error: APIError.requestFailed("Encoding parameters failed.")).eraseToAnyPublisher()
                 }
             }
+        print(urlRequest)
             return URLSession.shared.dataTaskPublisher(for: urlRequest)
                 .tryMap { (data, response) -> Data in
                     if let httpResponse = response as? HTTPURLResponse,
@@ -109,22 +112,7 @@ class NetworkService: NetworkServiceProtocol {
                         throw APIError.requestFailed("Request failed with status code: \(statusCode)")
                     }
                 }
-                .decode(type: NetworkResponcseWrapper<T>.self, decoder: JSONDecoder())
-                .tryMap { (responseWrapper) -> T in
-                    guard let status = responseWrapper.status else {
-                        throw APIError.requestFailed("Missing status.")
-                    }
-                    switch status {
-                    case 200:
-                        guard let data = responseWrapper.data else {
-                            throw APIError.requestFailed("Missing data.")
-                        }
-                        return data
-                    default:
-                        let message = responseWrapper.message ?? "An error occurred."
-                        throw APIError.requestFailed(message)
-                    }
-                }
+                .decode(type: T.self, decoder: JSONDecoder())
                 .mapError { error -> APIError in
                     if error is DecodingError {
                         return APIError.decodingFailed

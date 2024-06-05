@@ -17,7 +17,7 @@ struct ColectionObjects: Codable {
   var count               : Int?          = nil
   var countFacets         : CountFacets?  = CountFacets()
   var artObjects          : [ArtObjects]? = []
-  var facets              : [Facets]?     = []
+  //var facets              : [Facets]?     = []
 
   enum CodingKeys: String, CodingKey {
 
@@ -25,7 +25,7 @@ struct ColectionObjects: Codable {
     case count               = "count"
     case countFacets         = "countFacets"
     case artObjects          = "artObjects"
-    case facets              = "facets"
+    //case facets              = "facets"
   
   }
 
@@ -36,7 +36,7 @@ struct ColectionObjects: Codable {
     count               = try values.decodeIfPresent(Int.self          , forKey: .count               )
     countFacets         = try values.decodeIfPresent(CountFacets.self  , forKey: .countFacets         )
     artObjects          = try values.decodeIfPresent([ArtObjects].self , forKey: .artObjects          )
-    facets              = try values.decodeIfPresent([Facets].self     , forKey: .facets              )
+    //facets              = try values.decodeIfPresent([Facets].self     , forKey: .facets              )
  
   }
 
