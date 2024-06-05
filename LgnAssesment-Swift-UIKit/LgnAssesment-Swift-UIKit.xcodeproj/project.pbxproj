@@ -11,6 +11,14 @@
 		9F087AD32C105A1900876713 /* NetworkResponcseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD22C105A1900876713 /* NetworkResponcseWrapper.swift */; };
 		9F087AD52C105A6B00876713 /* ItemDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD42C105A6B00876713 /* ItemDataModel.swift */; };
 		9F087AD72C105BD800876713 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD62C105BD800876713 /* NetworkServiceProtocol.swift */; };
+		9F087AD92C10613B00876713 /* NetworkResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AD82C10613B00876713 /* NetworkResponses.swift */; };
+		9F087ADB2C10617100876713 /* ItemDataMapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087ADA2C10617100876713 /* ItemDataMapperProtocol.swift */; };
+		9F087AF32C106B1A00876713 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AEC2C106B1900876713 /* WebImage.swift */; };
+		9F087AF42C106B1A00876713 /* Facets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AED2C106B1900876713 /* Facets.swift */; };
+		9F087AF52C106B1A00876713 /* CountFacets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AEE2C106B1900876713 /* CountFacets.swift */; };
+		9F087AF62C106B1A00876713 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AEF2C106B1A00876713 /* Links.swift */; };
+		9F087AF72C106B1A00876713 /* HeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AF02C106B1A00876713 /* HeaderImage.swift */; };
+		9F087AF82C106B1A00876713 /* ArtObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F087AF12C106B1A00876713 /* ArtObjects.swift */; };
 		9F6E04842C0F707E0062E451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04832C0F707E0062E451 /* AppDelegate.swift */; };
 		9F6E04862C0F707E0062E451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04852C0F707E0062E451 /* SceneDelegate.swift */; };
 		9F6E04882C0F707E0062E451 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E04872C0F707E0062E451 /* ItemListViewController.swift */; };
@@ -50,6 +58,14 @@
 		9F087AD22C105A1900876713 /* NetworkResponcseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponcseWrapper.swift; sourceTree = "<group>"; };
 		9F087AD42C105A6B00876713 /* ItemDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataModel.swift; sourceTree = "<group>"; };
 		9F087AD62C105BD800876713 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		9F087AD82C10613B00876713 /* NetworkResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponses.swift; sourceTree = "<group>"; };
+		9F087ADA2C10617100876713 /* ItemDataMapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataMapperProtocol.swift; sourceTree = "<group>"; };
+		9F087AEC2C106B1900876713 /* WebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
+		9F087AED2C106B1900876713 /* Facets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Facets.swift; sourceTree = "<group>"; };
+		9F087AEE2C106B1900876713 /* CountFacets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountFacets.swift; sourceTree = "<group>"; };
+		9F087AEF2C106B1A00876713 /* Links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		9F087AF02C106B1A00876713 /* HeaderImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderImage.swift; sourceTree = "<group>"; };
+		9F087AF12C106B1A00876713 /* ArtObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtObjects.swift; sourceTree = "<group>"; };
 		9F6E04802C0F707E0062E451 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6E04832C0F707E0062E451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F6E04852C0F707E0062E451 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,9 +124,24 @@
 		9F087ACF2C1059D600876713 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				9F087AEB2C106AF600876713 /* DataObjects */,
 				9F087AD42C105A6B00876713 /* ItemDataModel.swift */,
+				9F087AD82C10613B00876713 /* NetworkResponses.swift */,
 			);
 			path = DataModels;
+			sourceTree = "<group>";
+		};
+		9F087AEB2C106AF600876713 /* DataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				9F087AF12C106B1A00876713 /* ArtObjects.swift */,
+				9F087AEE2C106B1900876713 /* CountFacets.swift */,
+				9F087AED2C106B1900876713 /* Facets.swift */,
+				9F087AF02C106B1A00876713 /* HeaderImage.swift */,
+				9F087AEF2C106B1A00876713 /* Links.swift */,
+				9F087AEC2C106B1900876713 /* WebImage.swift */,
+			);
+			path = DataObjects;
 			sourceTree = "<group>";
 		};
 		9F6E04772C0F707E0062E451 = {
@@ -172,6 +203,7 @@
 				9F6E04B52C0F87FE0062E451 /* ItemListModelProtocol.swift */,
 				9F6E04C42C0F8CB50062E451 /* ItemModelProtocol.swift */,
 				9F087AD62C105BD800876713 /* NetworkServiceProtocol.swift */,
+				9F087ADA2C10617100876713 /* ItemDataMapperProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -327,8 +359,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F6E04C32C0F8C7D0062E451 /* ItemModel.swift in Sources */,
+				9F087AF82C106B1A00876713 /* ArtObjects.swift in Sources */,
 				9F6E04BC2C0F88C00062E451 /* ItemViewCell.swift in Sources */,
+				9F087AF72C106B1A00876713 /* HeaderImage.swift in Sources */,
+				9F087AF32C106B1A00876713 /* WebImage.swift in Sources */,
 				9F6E04BF2C0F8C240062E451 /* ItemViewController.swift in Sources */,
+				9F087AF62C106B1A00876713 /* Links.swift in Sources */,
 				9F6E04BA2C0F88A00062E451 /* ItemListModel.swift in Sources */,
 				9F087AD12C1059F900876713 /* NetworkService.swift in Sources */,
 				9F6E04B62C0F87FE0062E451 /* ItemListModelProtocol.swift in Sources */,
@@ -337,10 +373,14 @@
 				9F087AD32C105A1900876713 /* NetworkResponcseWrapper.swift in Sources */,
 				9F6E04B82C0F88800062E451 /* ItemListViewModel.swift in Sources */,
 				9F6E04842C0F707E0062E451 /* AppDelegate.swift in Sources */,
+				9F087AF42C106B1A00876713 /* Facets.swift in Sources */,
+				9F087ADB2C10617100876713 /* ItemDataMapperProtocol.swift in Sources */,
 				9F6E04C52C0F8CB50062E451 /* ItemModelProtocol.swift in Sources */,
 				9F087AD52C105A6B00876713 /* ItemDataModel.swift in Sources */,
+				9F087AD92C10613B00876713 /* NetworkResponses.swift in Sources */,
 				9F6E04862C0F707E0062E451 /* SceneDelegate.swift in Sources */,
 				9F087AD72C105BD800876713 /* NetworkServiceProtocol.swift in Sources */,
+				9F087AF52C106B1A00876713 /* CountFacets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
