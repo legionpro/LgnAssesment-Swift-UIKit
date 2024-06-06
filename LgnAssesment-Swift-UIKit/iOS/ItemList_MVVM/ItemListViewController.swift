@@ -132,5 +132,17 @@ extension ItemListViewController: UICollectionViewDelegate  {
          self.navigationController?.pushViewController(cellViewController, animated: true)
      }
     
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        viewModel.loadMore()
+    }
+    
+
 }
 
+
+//
+//func collectionView(
+//    _ collectionView: UICollectionView,
+//    prefetchItemsAt indexPaths: [IndexPath]
+//)

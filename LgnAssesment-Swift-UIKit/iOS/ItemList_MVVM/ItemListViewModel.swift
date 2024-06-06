@@ -10,6 +10,10 @@ import Combine
 
 class ItemListViewModel {
     
+    private var currentPageNumber: Int = 1
+    private var currentPageSize: Int = 10
+    private var currentPageStep: Int = 10
+    
     var bag = Set<AnyCancellable>()
     let networkService: NetworkServiceProtocol
     @Published var model: ItemListModelProtocol
@@ -27,12 +31,28 @@ extension ItemListViewModel{
     var itemsList: [ItemDataModel] {
         get { self.model.itemsList }
     }
+    
+    // MARK: - load more data when user scroll to bottom
+    // it provides pagination logic that implemented for now
+    // it needs to be more smart
+    // it causes the endpoint performace
+    func loadMore() {
+        guard currentPageNumber * currentPageSize < 10000 else {return }
+        if currentPageNumber * currentPageSize <= (100 - currentPageStep) {
+            currentPageSize += currentPageStep
+        } else {
+            currentPageNumber += 1
+            currentPageSize = currentPageStep
+        }
+        self.resetItemsList()
+    }
 }
 
 extension ItemListViewModel : ItemDataMapperProtocol {
 
     func resetItemsList() {
-        let pub: AnyPublisher<ColectionObjects, APIError> = self.networkService.request(Endpoint.justGet, headers: nil, parameters: nil )
+        let parametr = String("&p=\(currentPageNumber)&ps=\(currentPageSize)")
+        let pub: AnyPublisher<ColectionObjects, APIError> = self.networkService.request(Endpoint.justGet, headers: nil, parameters: parametr )
         let subscription = pub
             .sink { completion in
                 switch completion {

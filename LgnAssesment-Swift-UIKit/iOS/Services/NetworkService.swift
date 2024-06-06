@@ -83,7 +83,13 @@ class NetworkService: NetworkServiceProtocol {
     }
 
     func request<T: Decodable>(_ endpoint: Endpoint, headers: [String: String]? = nil, parameters: Encodable? = nil) -> AnyPublisher<T, APIError> {
-            guard let url = URL(string: baseURL + endpoint.path) else {
+            // FIXME: - parametrs inserted in url string for now - temporarily
+            var params = ""
+            if let parameters = parameters as? String {
+                params = parameters
+            }
+        
+            guard let url = URL(string: baseURL + endpoint.path + params) else {
                 return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
             }
             var urlRequest = URLRequest(url: url)
@@ -92,15 +98,16 @@ class NetworkService: NetworkServiceProtocol {
                 for (key, value) in allHeaders {
                     urlRequest.setValue(value, forHTTPHeaderField: key)
             }
-            if let parameters = parameters {
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                do {
-                    let jsonData = try JSONEncoder().encode(parameters)
-                    urlRequest.httpBody = jsonData
-                } catch {
-                    return Fail(error: APIError.requestFailed("Encoding parameters failed.")).eraseToAnyPublisher()
-                }
-            }
+           // FIXME: - parametrs inserted in url string for now - temporarily
+//            if let parameters = parameters {
+//                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//                do {
+//                    let jsonData = try JSONEncoder().encode(parameters)
+//                    urlRequest.httpBody = jsonData
+//                } catch {
+//                    return Fail(error: APIError.requestFailed("Encoding parameters failed.")).eraseToAnyPublisher()
+//                }
+//            }
         print(urlRequest)
             return URLSession.shared.dataTaskPublisher(for: urlRequest)
                 .tryMap { (data, response) -> Data in
