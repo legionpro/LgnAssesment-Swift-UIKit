@@ -12,7 +12,6 @@ import Foundation
 import Foundation
 
 struct ColectionObjects: Codable {
-
   var elapsedMilliseconds : Int?          = nil
   var count               : Int?          = nil
   var countFacets         : CountFacets?  = CountFacets()
@@ -20,7 +19,6 @@ struct ColectionObjects: Codable {
   //var facets              : [Facets]?     = []
 
   enum CodingKeys: String, CodingKey {
-
     case elapsedMilliseconds = "elapsedMilliseconds"
     case count               = "count"
     case countFacets         = "countFacets"

@@ -68,9 +68,7 @@ class ItemListViewController: UIViewController {
 
 //MARK: - SetUp collectionView
 extension ItemListViewController {
-    
     private func createLayout() -> UICollectionViewLayout {
-        
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
@@ -85,7 +83,6 @@ extension ItemListViewController {
     }
     
     private func configureHierarchy() {
-         
          collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
          collectionView.delegate = self
          collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -95,9 +92,7 @@ extension ItemListViewController {
      }
     
     private func configureDataSource() {
-        
         dataSource = ItemsDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, item) -> ItemViewCell? in
-            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! ItemViewCell
             cell.item = item
             return cell
@@ -117,7 +112,6 @@ extension ItemListViewController {
 
 //MARK: - Collection View Delegates
 extension ItemListViewController: UICollectionViewDelegate  {
-    
     fileprivate enum Section {
         case main
     }
@@ -139,10 +133,3 @@ extension ItemListViewController: UICollectionViewDelegate  {
     
 
 }
-
-
-//
-//func collectionView(
-//    _ collectionView: UICollectionView,
-//    prefetchItemsAt indexPaths: [IndexPath]
-//)

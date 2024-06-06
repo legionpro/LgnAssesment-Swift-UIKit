@@ -24,7 +24,6 @@ enum HttpMethod: String {
 }
 
 enum Endpoint {
-    
     case justGet
 
     var path: String {
@@ -108,7 +107,7 @@ class NetworkService: NetworkServiceProtocol {
 //                    return Fail(error: APIError.requestFailed("Encoding parameters failed.")).eraseToAnyPublisher()
 //                }
 //            }
-        print(urlRequest)
+            print(urlRequest)
             return URLSession.shared.dataTaskPublisher(for: urlRequest)
                 .tryMap { (data, response) -> Data in
                     if let httpResponse = response as? HTTPURLResponse,

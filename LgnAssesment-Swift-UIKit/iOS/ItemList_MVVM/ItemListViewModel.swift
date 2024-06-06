@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class ItemListViewModel {
-    
     private var currentPageNumber: Int = 1
     private var currentPageSize: Int = 10
     private var currentPageStep: Int = 10
@@ -27,7 +26,6 @@ class ItemListViewModel {
 }
 
 extension ItemListViewModel{
-    
     var itemsList: [ItemDataModel] {
         get { self.model.itemsList }
     }
@@ -37,7 +35,7 @@ extension ItemListViewModel{
     // it needs to be more smart
     // it causes the endpoint performace
     func loadMore() {
-        guard currentPageNumber * currentPageSize < 10000 else {return }
+        guard currentPageNumber * currentPageSize < 10000 else { return }
         if currentPageNumber * currentPageSize <= (100 - currentPageStep) {
             currentPageSize += currentPageStep
         } else {
@@ -49,7 +47,6 @@ extension ItemListViewModel{
 }
 
 extension ItemListViewModel : ItemDataMapperProtocol {
-
     func resetItemsList() {
         let parametr = String("&p=\(currentPageNumber)&ps=\(currentPageSize)")
         let pub: AnyPublisher<ColectionObjects, APIError> = self.networkService.request(Endpoint.justGet, headers: nil, parameters: parametr )

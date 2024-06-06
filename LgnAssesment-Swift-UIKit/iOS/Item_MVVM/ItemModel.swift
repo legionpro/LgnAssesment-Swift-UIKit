@@ -8,7 +8,6 @@
 import Foundation
 
 class ItemModel {
-
     private var item: ItemDataModel
     
     init(item: ItemDataModel) {
@@ -17,7 +16,6 @@ class ItemModel {
 }
 
 extension ItemModel: ItemModelProtocol {
-    
     var itemData: ItemDataModel {
         get { self.item }
         set { self.item = newValue }

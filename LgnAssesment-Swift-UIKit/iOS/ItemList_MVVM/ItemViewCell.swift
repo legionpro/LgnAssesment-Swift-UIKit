@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class ItemViewCell: UICollectionViewCell  {
-
     var item: ItemDataModel? {
         didSet {
             nameLbl.text = item?.name
@@ -29,7 +28,6 @@ class ItemViewCell: UICollectionViewCell  {
     }
     
     lazy var nameLbl: UILabel = {
-        
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont(name: "Contact Name", size: 22)
@@ -42,12 +40,10 @@ class ItemViewCell: UICollectionViewCell  {
         let renderedImg = profileImg!.withTintColor(.gray, renderingMode: .alwaysOriginal)
         let imv = UIImageView(image: renderedImg )
         imv.translatesAutoresizingMaskIntoConstraints = false
-        //imv.contentMode = .scaleToFill
         return imv
     }()
     
     private func setupCell() {
-    
         self.backgroundView?.addSubview(itemImage)
         self.backgroundView?.addSubview(nameLbl)
 
@@ -68,9 +64,7 @@ class ItemViewCell: UICollectionViewCell  {
     
     
     override var isHighlighted: Bool {
-        
         didSet{
-            
             var transform = CGAffineTransform.identity
             if isHighlighted {
                transform = CGAffineTransform(scaleX: 0.95, y: 0.95)

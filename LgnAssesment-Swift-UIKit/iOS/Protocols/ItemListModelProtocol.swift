@@ -9,7 +9,5 @@ import Foundation
 
 //describes interface for ItemListModel
 protocol ItemListModelProtocol {
-    
     var itemsList: [ItemDataModel] { get set }
-
 }

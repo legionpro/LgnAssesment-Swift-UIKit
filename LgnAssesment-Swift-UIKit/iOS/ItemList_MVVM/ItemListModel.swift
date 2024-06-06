@@ -20,10 +20,9 @@ class ItemListModel {
 }
 
 extension ItemListModel: ItemListModelProtocol {
-    
     var itemsList: [ItemDataModel] {
         get { self.items }
-        set { self.items = newValue}
+        set { self.items = newValue }
     }
 }
 

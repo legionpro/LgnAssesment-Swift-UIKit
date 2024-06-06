@@ -25,7 +25,7 @@ final class LgnAssesment_Swift_UIKitTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testDataMaping() throws {
         itemListViewModel!.resetItemsList()
         let expectation = XCTestExpectation(description: "Open a file asynchronously.")
         DispatchQueue.global().asyncAfter(deadline: .now() + 2, execute: {
@@ -47,7 +47,6 @@ final class LgnAssesment_Swift_UIKitTests: XCTestCase {
 
 
 final class NetworkServiceTest: NetworkServiceProtocol {
-    
     @Published var cpub: ColectionObjects?
 
     init() {

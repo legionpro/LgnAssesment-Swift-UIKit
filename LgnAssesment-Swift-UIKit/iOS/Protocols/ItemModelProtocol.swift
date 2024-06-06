@@ -8,6 +8,5 @@
 import Foundation
 
 protocol ItemModelProtocol {
-    
     var itemData: ItemDataModel { get set }
 }

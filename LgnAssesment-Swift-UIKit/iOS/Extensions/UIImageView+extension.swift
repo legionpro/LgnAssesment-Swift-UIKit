@@ -11,7 +11,8 @@ import Kingfisher
 
 extension UIImageView {
 
-    func loadAndSetup( url: String ) {
+    //MARK: - using Kignfisher package functionality
+    func loadAndSetup(url: String) {
         guard let imgurl = URL(string: url) else { return }
         let processor = DownsamplingImageProcessor(size: self.bounds.size)
                      |> RoundCornerImageProcessor(cornerRadius: 0)
