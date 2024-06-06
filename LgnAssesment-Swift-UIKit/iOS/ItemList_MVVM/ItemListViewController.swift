@@ -44,6 +44,7 @@ class ItemListViewController: UIViewController {
         collectionView.refreshControl = refreshControl
         
         binding()
+        //self.view.backgroundColor =  UIColor(hue: 0.25, saturation: 0.66, brightness: 0.66, alpha: 0.3)
     }
     
     override func viewDidAppear(_ animated: Bool) {

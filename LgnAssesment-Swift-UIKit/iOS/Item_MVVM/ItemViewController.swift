@@ -41,7 +41,8 @@ final class ItemView: UIView {
         self.viewModel = viewModel
         super.init(frame: .zero)
         backgroundColor = .white
-        containerView.backgroundColor = .lightGray
+        //containerView.backgroundColor = UIColor(hue: 0, saturation: 0.66, brightness: 0.66, alpha: 0.3)
+        containerView.backgroundColor = UIColor(hue: 0.25, saturation: 0.66, brightness: 0.66, alpha: 0.3)
         addSubview(containerView)
         setupCell()
         self.imageView.loadAndSetup(url: self.viewModel.item.webImageUrl)

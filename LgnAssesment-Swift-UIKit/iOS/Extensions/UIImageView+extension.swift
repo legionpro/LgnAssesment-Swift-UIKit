@@ -19,7 +19,7 @@ extension UIImageView {
         self.kf.indicatorType = .activity
         self.kf.setImage(
             with: imgurl,
-            placeholder: UIImage(named: "placeholderImage"),
+
             options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale),
