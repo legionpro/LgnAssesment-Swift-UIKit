@@ -11,15 +11,6 @@ import Combine
 fileprivate typealias ItemsDataSource  = UICollectionViewDiffableDataSource<ItemListViewController.Section, ItemDataModel>
 fileprivate typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<ItemListViewController.Section, ItemDataModel>
 
-
-
-//private lazy var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never>  = {
-//  $name
-//    .map { $0.count >= 3 }
-//    .eraseToAnyPublisher()
-//}()
-
-
 class ItemListViewController: UIViewController {
 
     let cellId = "cellId"

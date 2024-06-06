@@ -11,11 +11,14 @@ import Combine
 class ItemListViewModel {
     
     var bag = Set<AnyCancellable>()
+    let networkService: NetworkServiceProtocol
     @Published var model: ItemListModelProtocol
     
-    init(model: ItemListModelProtocol) {
+    init(model: ItemListModelProtocol, networkService: NetworkServiceProtocol) {
         self.model = model
+        self.networkService = networkService
     }
+    
     
 }
 
@@ -29,7 +32,7 @@ extension ItemListViewModel{
 extension ItemListViewModel : ItemDataMapperProtocol {
 
     func resetItemsList() {
-        let pub: AnyPublisher<ColectionObjects, APIError> = NetworkService().request(Endpoint.justGet)
+        let pub: AnyPublisher<ColectionObjects, APIError> = self.networkService.request(Endpoint.justGet, headers: nil, parameters: nil )
         let subscription = pub
             .sink { completion in
                 switch completion {

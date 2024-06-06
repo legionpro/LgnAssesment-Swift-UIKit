@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
-        let itemListViewModel = ItemListViewModel(model: ItemListModel())
+        let service = NetworkService()
+        let itemListViewModel = ItemListViewModel(model: ItemListModel(), networkService: service)
         let navigation = UINavigationController(rootViewController: ItemListViewController(viewModel: itemListViewModel))
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
