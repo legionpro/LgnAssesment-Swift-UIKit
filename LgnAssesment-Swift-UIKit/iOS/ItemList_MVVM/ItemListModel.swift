@@ -25,12 +25,5 @@ extension ItemListModel: ItemListModelProtocol {
         get { self.items }
         set { self.items = newValue}
     }
-    
-    //FIXME:  - Just for dummy data
-    func createData() {
-        for i in 0..<10 {
-            items.append(ItemDataModel(name:"Item name \(i)", description: "Item name \(i)", webImageUrl: ""))
-        }
-    }
 }
 

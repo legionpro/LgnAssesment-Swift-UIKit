@@ -11,7 +11,5 @@ import Foundation
 protocol ItemListModelProtocol {
     
     var itemsList: [ItemDataModel] { get set }
-    
-    // FIXME: temporary solusion
-    mutating func createData()
+
 }

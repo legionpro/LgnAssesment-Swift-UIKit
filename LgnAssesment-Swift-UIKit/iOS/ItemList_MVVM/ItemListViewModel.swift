@@ -51,13 +51,3 @@ extension ItemListViewModel : ItemDataMapperProtocol {
               .store(in: &bag)
     }
 }
-
-//FIXME: -  To provide dummy data fot viewcontroller
-extension ItemListViewModel {
-    var dummyItemsList: [ItemDataModel] {
-        get {
-            self.model.createData()
-            return self.model.itemsList
-        }
-    }
-}

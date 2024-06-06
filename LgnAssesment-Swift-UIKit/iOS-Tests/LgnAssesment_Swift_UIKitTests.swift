@@ -6,12 +6,19 @@
 //
 
 import XCTest
-@testable import LgnAssesment_Swift_UIKit
+@testable import iOS
+import Combine
 
 final class LgnAssesment_Swift_UIKitTests: XCTestCase {
+    
+    var testService: NetworkServiceProtocol = NetworkServiceTest()
+    var testModel: ItemListModelProtocol = ItemListModel()
+    var itemListViewModel: ItemListViewModel? = nil
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        itemListViewModel = ItemListViewModel(model: testModel, networkService: testService)
+
     }
 
     override func tearDownWithError() throws {
@@ -19,11 +26,14 @@ final class LgnAssesment_Swift_UIKitTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        itemListViewModel!.resetItemsList()
+        let expectation = XCTestExpectation(description: "Open a file asynchronously.")
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2, execute: {
+            if self.itemListViewModel!.model.itemsList.count == 10 {
+                expectation.fulfill()
+            }
+        })
+        wait(for: [expectation], timeout: 3)
     }
 
     func testPerformanceExample() throws {
@@ -34,3 +44,32 @@ final class LgnAssesment_Swift_UIKitTests: XCTestCase {
     }
 
 }
+
+
+final class NetworkServiceTest: NetworkServiceProtocol {
+    
+    @Published var cpub: ColectionObjects?
+
+    init() {
+        cpub = createData()
+    }
+    func request<T>(_ endpoint: iOS.Endpoint, headers: [String : String]?, parameters: (any Encodable)?) -> AnyPublisher<T, iOS.APIError> where T : Decodable {
+        let p = (cpub) as! T
+        return Just(p).setFailureType(to: iOS.APIError.self).eraseToAnyPublisher()
+    }
+    
+    func createData() -> ColectionObjects {
+        var artObjectArry: [ArtObjects] = [ArtObjects]()
+        for i in 0..<10 {
+            var aObj = ArtObjects()
+            aObj.title = "Tititle \(i)"
+            aObj.longTitle = "Long Title  \(i)"
+            aObj.webImage = WebImage()
+            artObjectArry.append(aObj)
+        }
+        var cObj = ColectionObjects()
+        cObj.artObjects = artObjectArry
+        return  cObj
+    }
+}
+
