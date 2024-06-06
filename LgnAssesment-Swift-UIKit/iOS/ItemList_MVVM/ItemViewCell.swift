@@ -6,20 +6,22 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ItemViewCell: UICollectionViewCell  {
 
     var item: ItemDataModel? {
         didSet {
             nameLbl.text = item?.name
+            self.itemImage.loadAndSetup(url: item?.webImageUrl ?? "")
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         setupCardCellShadow()
         setupCell()
+
     }
     
     required init?(coder: NSCoder) {
@@ -34,13 +36,13 @@ class ItemViewCell: UICollectionViewCell  {
         lbl.textColor = UIColor.init(white: 0.3, alpha: 0.4)
         return lbl
     }()
-    
-    
+
     lazy var itemImage: UIImageView = {
         let profileImg = UIImage(systemName: "house.circle")
         let renderedImg = profileImg!.withTintColor(.gray, renderingMode: .alwaysOriginal)
         let imv = UIImageView(image: renderedImg )
         imv.translatesAutoresizingMaskIntoConstraints = false
+        //imv.contentMode = .scaleToFill
         return imv
     }()
     
@@ -52,8 +54,8 @@ class ItemViewCell: UICollectionViewCell  {
         NSLayoutConstraint.activate([
             itemImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             itemImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            itemImage.widthAnchor.constraint(equalToConstant: 50),
-            itemImage.heightAnchor.constraint(equalToConstant: 50),
+            itemImage.widthAnchor.constraint(equalToConstant: 60),
+            itemImage.heightAnchor.constraint(equalToConstant: 60),
 
             nameLbl.centerYAnchor.constraint(equalTo: centerYAnchor),
             nameLbl.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant: 16),
@@ -63,6 +65,7 @@ class ItemViewCell: UICollectionViewCell  {
         ])
         
     }
+    
     
     override var isHighlighted: Bool {
         
@@ -86,7 +89,7 @@ class ItemViewCell: UICollectionViewCell  {
          backgroundView?.layer.cornerRadius  = 9
          backgroundView?.layer.shadowOpacity = 0.2
          backgroundView?.layer.shadowOffset  = .init(width: 4, height: 10)
-         backgroundView?.layer.shadowRadius  = 10
+         backgroundView?.layer.shadowRadius  = 9
 
          layer.borderColor  = UIColor.gray.cgColor
          layer.borderWidth  = 0.1

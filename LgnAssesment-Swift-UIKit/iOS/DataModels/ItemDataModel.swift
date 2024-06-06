@@ -11,6 +11,7 @@ import Foundation
 //MARK: - Describes Items for using on UI
 struct ItemDataModel: Hashable {
     let name: String
-    let image: String
+    let description: String 
+    let webImageUrl: String
 }
 

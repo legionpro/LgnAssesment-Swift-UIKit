@@ -11,7 +11,7 @@ import Combine
 class ItemListViewModel {
     
     var bag = Set<AnyCancellable>()
-    private var model: ItemListModelProtocol
+    @Published var model: ItemListModelProtocol
     
     init(model: ItemListModelProtocol) {
         self.model = model

@@ -21,7 +21,7 @@ extension ItemDataMapperProtocol {
     func itemResponseToItem(_ response: ColectionObjects ) -> [ItemDataModel] {
         var result = [ItemDataModel]()
         if let resp = response.artObjects {
-            let _ = resp.map{ result.append(ItemDataModel(name: $0.title ?? "" , image: "")) }
+            let _ = resp.map{ result.append(ItemDataModel(name: $0.title ?? "", description: $0.longTitle ?? $0.title ?? "" , webImageUrl: $0.webImage?.url ?? "")) }
         }
         return result
     }

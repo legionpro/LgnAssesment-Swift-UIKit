@@ -13,6 +13,13 @@ fileprivate typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<ItemList
 
 
 
+//private lazy var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never>  = {
+//  $name
+//    .map { $0.count >= 3 }
+//    .eraseToAnyPublisher()
+//}()
+
+
 class ItemListViewController: UIViewController {
 
     let cellId = "cellId"
@@ -23,39 +30,46 @@ class ItemListViewController: UIViewController {
     init(viewModel: ItemListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var bag = Set<AnyCancellable>()
+    
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Items List"
 
-        //FIXME: just dummy daata for futher development
-        viewModel.dummyItemsList
-
         configureHierarchy()
         configureDataSource()
         
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
+        collectionView.alwaysBounceVertical = true
+        collectionView.refreshControl = refreshControl
         
-        //FIXME:  - jest temporary solution
-        let logoutBarButtonItem = UIBarButtonItem(title: "Reset", style: .done, target: self, action: #selector(resetCollectionObjects))
-        self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
-        
-        //FIXME:  - jest temporary solution
-        let updBarButtonItem = UIBarButtonItem(title: "Upd", style: .done, target: self, action: #selector(update))
-        self.navigationItem.leftBarButtonItem  = updBarButtonItem
+        binding()
     }
-
-    //FIXME: - bindings is needed
-    @objc func resetCollectionObjects() {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         viewModel.resetItemsList()
     }
-    //FIXME: - bindings is needed
-    @objc func update() {
-        self.updateSnashot()
+    
+    func binding() {
+        let _ = self.viewModel.$model.map{ $0 }.sink(receiveValue: { [weak self] _ in
+            self?.updateSnashot()
+        }).store(in: &bag)
+    }
+    
+    @objc
+    private func didPullToRefresh(_ sender: Any) {
+        viewModel.resetItemsList()
+        refreshControl.endRefreshing()
     }
 
 }

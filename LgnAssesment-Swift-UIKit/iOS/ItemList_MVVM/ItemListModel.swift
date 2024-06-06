@@ -6,16 +6,18 @@
 //
 
 import Foundation
+import Observation
+
 
 //MARK: - Data for main screen  -  Item List Controller
-struct ItemListModel {
+@Observable
+class ItemListModel {
     private var items = [ItemDataModel]()
     
-    mutating func addItem(_ item: ItemDataModel) {
+    func addItem(_ item: ItemDataModel) {
         self.items.append(item)
     }
 }
-
 
 extension ItemListModel: ItemListModelProtocol {
     
@@ -25,9 +27,9 @@ extension ItemListModel: ItemListModelProtocol {
     }
     
     //FIXME:  - Just for dummy data
-    mutating func createData() {
+    func createData() {
         for i in 0..<10 {
-            items.append(ItemDataModel(name:"Item name \(i)", image: ""))
+            items.append(ItemDataModel(name:"Item name \(i)", description: "Item name \(i)", webImageUrl: ""))
         }
     }
 }
