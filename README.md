@@ -22,10 +22,11 @@
 - UIKit without Storyboards and XIB, extensions, protocols
 - UICollectionViewDiffableDataSource
 - implemented very simple approach pagenation functionality (it shoould be smarter in real app, server-side   uses a certain approach for pagination.)
-- imp;emented the one endpoint on the client (the data structure is extended and very complicated. so it needs more time)
+- implemented the one endpoint on the client (the data structure is extended and very complicated. so it needs more time)
 - implemented Sections in the CollectionVIew ( but only one section -  it is not clear wich data should be used so sections' sign, needs to be discussed. As the result - single section - no headers)
 - separate NetworkService + Data Maping functionality
-- Swift Combine + JSON decoder + publishers/subsriptions (in appropriate cases)
+- Swift Combine + @Observable/@Published + JSON decoder + publishers/subsriptions (in appropriate cases)
+- async/await + task + @MainActor
 - Procesed with the server API (found some issues and resolver it for local client)
 - Implemente an unit test for async/publisher functionality.
 
