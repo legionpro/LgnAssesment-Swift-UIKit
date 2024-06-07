@@ -10,10 +10,10 @@
 
 ### approaches:
 
-- demonstrate of using the modern native and third-patry API in swift porject;
+- demonstrate of using the modern native and third-party API in swift projects;
 - avoid overengeneering
 - SOLID, clean architecture, MVVM (in appropriate cases)
-- spent little time for UI
+- spent little time on UI
 
 ### results:
 
@@ -21,22 +21,23 @@
 - Protocol Oriented dev. and Dependency Injection
 - UIKit without Storyboards and XIB, extensions, protocols
 - UICollectionViewDiffableDataSource
-- implemented very simple approach pagenation functionality (it shoould be smarter in real app, server-side   uses a certain approach for pagination.)
+- implemented a straightforward approach to pagination functionality (it should be smarter in real app, server-side uses a certain approach for pagination.)
 - implemented the one endpoint on the client (the data structure is extended and very complicated. so it needs more time)
-- implemented Sections in the CollectionVIew ( but only one section -  it is not clear wich data should be used so sections' sign, needs to be discussed. As the result - single section - no headers)
-- separate NetworkService + Data Maping functionality
-- Swift Combine + @Observable/@Published + JSON decoder + publishers/subsriptions (in appropriate cases)
+- implemented Sections in the CollectionVIew ( but only one section - it is not clear which data should be used so the sections' sign, needs to be discussed. As a result - a single section - with no headers)
+- separate NetworkService + Data Mapping functionality
+- Swift Combine + @Observable/@Published + JSON decoder + publishers/subscriptions (in appropriate cases)
 - async/await + task + @MainActor
-- Procesed with the server API (found some issues and resolver it for local client)
-- Implemente an unit test for async/publisher functionality.
+- Processed with the server API (found some issues and resolver it for local client)
+- Implemented a unit test for async/publisher functionality.
 
 ### issues and further improvement:
 
-- I tryed to avoid overengeneering, but a more complicated approaces could be implemented in future :
-  - modular architectere - separate modules for different project's layer;  
-  - add coordinator pattern in case of more complicated flow
-  - to discus smarter pagenation (needs to be cosider the curren server-side approac)
-  - improve UI and user experience
-  - implemet more UnitTests / UITests 
-  - implement all endpoints  - it needs more time
-- found an issue with server-side data format (same name for different items - it crashed decoding on client side)
+I tried to avoid overengineering, but more complicated approaches could be implemented in future :
+
+- modular architecture - separate modules for different project layers;
+- add coordinator pattern in case of a more complex flow
+- to discuss smarter pagination (needs to be considered the current server-side approach)
+- improve UI and user experience
+- implement more UnitTests / UITests
+- implement all endpoints - it needs more time
+- found an issue with server-side data format (same name for different items - it crashed decoding on the client side)
