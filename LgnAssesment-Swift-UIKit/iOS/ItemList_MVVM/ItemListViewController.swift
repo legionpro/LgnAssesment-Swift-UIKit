@@ -53,6 +53,7 @@ class ItemListViewController: UIViewController {
     }
     
     func binding() {
+        @MainActor
         let _ = self.viewModel.$model.map{ $0 }.sink(receiveValue: { [weak self] _ in
             self?.updateSnashot()
         }).store(in: &bag)
@@ -102,11 +103,15 @@ extension ItemListViewController {
         updateSnashot()
     }
     
+    @MainActor
     fileprivate func updateSnashot() {
         var snapshot = DataSourceSnapshot()
         snapshot.appendSections([Section.main])
         snapshot.appendItems(self.viewModel.itemsList)
-        dataSource.apply(snapshot, animatingDifferences: true)
+        DispatchQueue.main.async(execute: {
+            self.dataSource.apply(snapshot, animatingDifferences: true)
+        })
+
     }
 
 }
