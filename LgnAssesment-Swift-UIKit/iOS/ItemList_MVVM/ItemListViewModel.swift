@@ -51,6 +51,7 @@ extension ItemListViewModel : ItemDataMapperProtocol {
         let parametr = String("&p=\(currentPageNumber)&ps=\(currentPageSize)")
         let pub: AnyPublisher<ColectionObjects, APIError> = self.networkService.request(Endpoint.justGet, headers: nil, parameters: parametr )
         let subscription = pub
+            .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:

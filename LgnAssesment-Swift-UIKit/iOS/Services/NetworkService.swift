@@ -109,6 +109,7 @@ class NetworkService: NetworkServiceProtocol {
 //            }
             print(urlRequest)
             return URLSession.shared.dataTaskPublisher(for: urlRequest)
+                .subscribe(on: DispatchQueue.global(qos: .default))
                 .tryMap { (data, response) -> Data in
                     if let httpResponse = response as? HTTPURLResponse,
                        (200..<300).contains(httpResponse.statusCode) {
