@@ -27,7 +27,7 @@
 - separate NetworkService + Data Mapping functionality
 - Swift Combine + @Observable/@Published + JSON decoder + publishers/subscriptions (in appropriate cases)
 - async/await + task + @MainActor
-- Processed with the server API (found some issues and resolver it for local client)
+- Processed with the server API (found some issues and resolved it for local client)
 - Implemented a unit test for async/publisher functionality.
 
 ### issues and further improvement:
