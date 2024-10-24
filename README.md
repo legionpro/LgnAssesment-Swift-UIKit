@@ -8,7 +8,7 @@
 
 - to implement the requirements  and in the time
 
-- the are the requirements for the assessment:
+- there are the requirements for the assessment:
 
   ~~~
   *Use the Duthc Rijksmuseum API, see the documentation here:*
@@ -35,7 +35,7 @@
 - demonstrate of using the modern native and third-party API in swift projects;
 - avoid overengeneering
 - SOLID, clean architecture, MVVM (in appropriate cases)
-- spent little time on UI
+- spent little time on UI (were not requirements here)
 
 ### results:
 
